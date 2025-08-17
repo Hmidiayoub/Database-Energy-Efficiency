@@ -7,3 +7,4 @@ step 4 : i used PostgreSQL "explain analyze" to know where is the bottelneck of 
 Solution 1 : Indexing, i tried to index on the most important column of the joined tables and the resource consumption dropped dramastically
 Solution 2 : Materialized view, I tested the same query with materializing its subquery, it worked and it is more efficient as we don't need to recompute intermediate results
 Solution 3 : Query reordering, pushing down selections, aggregations and filters and reordering joins (starting with tables that eliminate many data and going down through tables relations), and rewriting subqueries.
+Note : I used a power meter to calculate each query's energy efficiency, their power consumption is simillar, the machine idle power is 35W, and when executing these queries it can reach 75W with 65W being the average on all queries.
